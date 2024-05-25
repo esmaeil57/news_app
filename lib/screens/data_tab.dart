@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_c10_str/screens/news_tab.dart';
-import 'package:news_c10_str/shared/network/remote/api_manager.dart';
+import 'package:news_app/screens/news_tab.dart';
+import 'package:news_app/shared/network/remote/api_manager.dart';
 
 class DataTab extends StatelessWidget {
   String categoryId;
@@ -13,15 +13,15 @@ class DataTab extends StatelessWidget {
       future: ApiManager.getSources(categoryId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
-          return Center(child: Text("Something went wrong"));
+          return const Center(child: Text("Something went wrong"));
         }
 
         var sourcesList = snapshot.data?.sources ?? [];
         if (sourcesList.isEmpty) {
-          return Center(child: Text("No SOurces"));
+          return const Center(child: Text("No Sources"));
         }
         return NewsTab(
           sources: sourcesList,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_c10_str/models/source_reposne.dart';
+import 'package:news_app/models/source_reposne.dart';
 
 class SourceItem extends StatelessWidget {
   Sources source;
@@ -10,7 +10,7 @@ class SourceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           border: Border.all(color: Colors.green),

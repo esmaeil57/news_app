@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_c10_str/models/source_reposne.dart';
-import 'package:news_c10_str/screens/news_item.dart';
-import 'package:news_c10_str/screens/source_item.dart';
-import 'package:news_c10_str/shared/network/remote/api_manager.dart';
+import 'package:news_app/models/source_reposne.dart';
+import 'package:news_app/screens/news_item.dart';
+import 'package:news_app/screens/source_item.dart';
+import 'package:news_app/shared/network/remote/api_manager.dart';
 
 class NewsTab extends StatefulWidget {
   List<Sources> sources;
@@ -45,23 +45,23 @@ class _NewsTabState extends State<NewsTab> {
               ApiManager.getNewsData(widget.sources[selectedIndex].id ?? ""),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                   child: CircularProgressIndicator(
                 color: Colors.green,
               ));
             }
             if (snapshot.hasError) {
-              return Center(child: Text("Something went wrong"));
+              return const Center(child: Text("Something went wrong"));
             }
 
             var articlesList = snapshot.data?.articles ?? [];
             if (articlesList.isEmpty) {
-              return Center(child: Text("No SOurces"));
+              return const Center(child: Text("No SOurces"));
             }
             return Expanded(
               child: ListView.separated(
 
-                separatorBuilder: (context, index) => SizedBox(
+                separatorBuilder: (context, index) => const SizedBox(
                   height: 12,
                 ),
                 itemBuilder: (context, index) {

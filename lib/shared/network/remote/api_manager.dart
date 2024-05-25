@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:news_c10_str/shared/components/constants.dart';
+import 'package:news_app/shared/components/constants.dart';
 
 import '../../../models/NewsResponse.dart';
 import '../../../models/source_reposne.dart';
